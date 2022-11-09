@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script src="../echarts-5.4.0/echarts-5.4.0/dist/echarts.js"></script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        let myChart = echarts.init(document.querySelector('.box'))
+        var data = [
+            {
+                name: 'Grandpa',
+                children: [
+                    {
+                        name: 'Uncle Leo',
+                        value: 15,
+                        children: [
+                            {
+                                name: 'Cousin Jack',
+                                value: 2
+                            },
+                            {
+                                name: 'Cousin Mary',
+                                value: 5,
+                                children: [
+                                    {
+                                        name: 'Jackson',
+                                        value: 2
+                                    }
+                                ]
+                            },
+                            {
+                                name: 'Cousin Ben',
+                                value: 4
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Father',
+                        value: 10,
+                        children: [
+                            {
+                                name: 'Me',
+                                value: 5
+                            },
+                            {
+                                name: 'Brother Peter',
+                                value: 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: 'Nancy',
+                children: [
+                    {
+                        name: 'Uncle Nike',
+                        children: [
+                            {
+                                name: 'Cousin Betty',
+                                value: 1
+                            },
+                            {
+                                name: 'Cousin Jenny',
+                                value: 2
+                            }
+                        ]
+                    }
+                ]
+            }
+        ];
+        let option = {
+            series: {
+                type: 'sunburst',
+                data: data,
+                radius: [60, '90%'],
+                itemStyle: {
+                    borderRadius: 7,
+                    borderWidth: 2
+                },
+                label: {
+                    show: false
+                }
+            }
+        };
+
+        myChart.setOption(option);
+
+    </script>
+</body>
+
+</html>
